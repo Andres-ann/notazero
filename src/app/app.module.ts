@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ConstanciasComponent } from './pages/constancias/constancias.component';
+import { CertificadosTableComponent } from './components/certificados-table/certificados-table.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { AuthGuard } from './guards/auth.guard';
     TableComponent,
     LoginComponent,
     SignupComponent,
+    ConstanciasComponent,
+    CertificadosTableComponent,
   ],
   imports: [
     BrowserModule,

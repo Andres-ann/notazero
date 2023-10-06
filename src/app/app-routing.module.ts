@@ -7,6 +7,7 @@ import { ShowComponent } from './pages/show/show.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ConstanciasComponent } from './pages/constancias/constancias.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -15,6 +16,11 @@ const routes: Routes = [
   { path: 'show/:id', component: ShowComponent, canActivate: [AuthGuard] },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
   { path: 'update/:id', component: EditComponent, canActivate: [AuthGuard] },
+  {
+    path: 'constancias',
+    component: ConstanciasComponent,
+    canActivate: [AuthGuard],
+  },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
