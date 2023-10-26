@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudSubjectsService } from 'src/app/services/crudSubjects.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Materias } from 'src/app/models/materias.model';
+import { Subject } from 'src/app/models/subject.model';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css'],
+  selector: 'app-edit-subject',
+  templateUrl: './edit-subject.component.html',
+  styleUrls: ['./edit-subject.component.css'],
 })
-export class EditComponent implements OnInit {
+export class EditSubjectComponent implements OnInit {
   id!: any;
   userId: string;
-  materia: Materias | undefined;
+  materia: Subject | undefined;
 
   constructor(
-    private crudService: CrudService,
+    private CrudSubjectsService: CrudSubjectsService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.crudService.getMateria(this.id).subscribe((res) => {
+    this.CrudSubjectsService.getMateria(this.id).subscribe((res) => {
       this.materia = {
         userId: this.id,
         subjectId: res.subjectId,
@@ -43,8 +43,8 @@ export class EditComponent implements OnInit {
     });
   }
 
-  onSubmit(materia: Materias) {
-    this.crudService.updateMateria(this.id, materia).subscribe({
+  onSubmit(materia: Subject) {
+    this.CrudSubjectsService.updateMateria(this.id, materia).subscribe({
       next: () => {
         this.router.navigate(['/']);
       },

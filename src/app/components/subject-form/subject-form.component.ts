@@ -1,21 +1,21 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Materias } from 'src/app/models/materias.model';
+import { Subject } from 'src/app/models/subject.model';
 
 @Component({
-  selector: 'app-generic-form',
-  templateUrl: './generic-form.component.html',
-  styleUrls: ['./generic-form.component.css'],
+  selector: 'app-subject-form',
+  templateUrl: './subject-form.component.html',
+  styleUrls: ['./subject-form.component.css'],
 })
-export class GenericFormComponent implements OnInit {
+export class SubjectFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   userId = sessionStorage.getItem('userSub');
   formMaterias: FormGroup;
   @Input()
-  modelMaterias: Materias;
+  modelMaterias: Subject;
   @Output()
-  submitValues: EventEmitter<Materias> = new EventEmitter<Materias>();
+  submitValues: EventEmitter<Subject> = new EventEmitter<Subject>();
   formValid = false;
 
   ngOnInit(): void {

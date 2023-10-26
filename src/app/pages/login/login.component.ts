@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
     this.forgotPassword = false;
   }
 
-  forgotPassWordClicked() {
+  // TODO: Comentado hasta poder solucionar el problema de recupero de contraseña
+  /*forgotPassWordClicked() {
     this.forgotPassword = true;
     this.isForgotPassword = true;
     if (this.user && this.user.email) {
@@ -58,6 +59,7 @@ export class LoginComponent implements OnInit {
       this.displayAlert('Para recuperar su contraseña ingrese un email válido');
     }
   }
+  */
 
   newPasswordSubmit() {
     if (this.user && this.user.code && this.newPassword.trim().length !== 0) {

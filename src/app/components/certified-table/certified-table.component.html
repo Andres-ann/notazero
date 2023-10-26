@@ -1,0 +1,35 @@
+<div class="card p-3 mb-5 shadow">
+  <table class="table table-hover">
+    <thead class="text-center">
+      <tr>
+        <th class="col-6 text-start">Constancia</th>
+        <th class="col">Fecha</th>
+        <th class="col">Estado</th>
+        <th class="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let certificado of certificados">
+        <td class="text-start">{{ certificado.tipoConstancia }}</td>
+        <td>{{ certificado.fecha }}</td>
+        <td>
+          <span
+            class="badge rounded-pill"
+            [ngClass]="{
+              'bg-danger text-white': certificado.estado === 'rechazado',
+              'bg-secondary text-white': certificado.estado === 'pendiente',
+              'bg-success text-white': certificado.estado === 'aprobado'
+            }"
+          >
+            {{ certificado.estado }}
+          </span>
+        </td>
+        <td>
+          <a class="btn btn-sm">
+            <i class="bi bi-printer text-muted"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
