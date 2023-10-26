@@ -1,0 +1,145 @@
+<div class="card shadow p-5">
+  <form [formGroup]="certificadosForm" (ngSubmit)="onSubmit()" class="p-3">
+    <div class="row mb-3">
+      <label class="col col-form-label">Tipo de constancia:</label>
+      <div class="col-sm-10">
+        <select
+          class="form-select"
+          aria-label="Default"
+          formControlName="tipoConstancia"
+          required
+        >
+          <option value="Constancia de alumno regular">
+            CONSTANCIA DE ALUMNO REGULAR
+          </option>
+          <option value="Constancia de inscripción">
+            CONSTANCIA DE INSCRIPCIÓN
+          </option>
+          <option value="Constancia de examen">CONSTANCIA DE EXAMEN</option>
+        </select>
+      </div>
+    </div>
+
+    <div
+      class="row mb-3"
+      *ngIf="
+        certificadosForm.get('tipoConstancia').value === 'Constancia de examen'
+      "
+    >
+      <label class="col col-form-label">Asignatura:</label>
+      <div class="col-sm-6">
+        <input
+          style="text-transform: uppercase"
+          formControlName="asignatura"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+      <label class="col col-form-label">Tipo de examen:</label>
+      <div class="col-sm-2 mt-2">
+        <div class="form-check form-check-inline">
+          <label class="form-check-label" for="inlineRadio1">Parcial</label>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="parcial"
+            required
+          />
+        </div>
+        <div class="form-check form-check-inline">
+          <label class="form-check-label" for="inlineRadio2">Final</label>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="final"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col col-form-label">Nombre/s y Apellido/s:</label>
+      <div class="col-sm-10">
+        <input
+          style="text-transform: uppercase"
+          formControlName="nombre"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col col-form-label">DNI/LC/LE N°:</label>
+      <div class="col-sm-3">
+        <input
+          formControlName="dni"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <label class="col-sm-1 col-form-label">Carrera</label>
+      <div class="col-sm-3">
+        <select
+          class="form-select"
+          aria-label="Default"
+          formControlName="carrera"
+          required
+        >
+          <option value="Analisis">
+            TECNICATURA SUPERIOR EN ANÁLISIS DE SISTEMAS
+          </option>
+          <option value="CDsIA">
+            TECNICATURA SUPERIOR EN CIENCIA DE DATOS E IA
+          </option>
+          <option value="Desarrollo">
+            TECNICATURA SUPERIOR EN DESARROLLO DE SOFTWARE
+          </option>
+        </select>
+      </div>
+
+      <label class="col-sm-1 col-form-label">Fecha:</label>
+      <div class="col-sm-2">
+        <input
+          formControlName="fecha"
+          type="date"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label class="col col-form-label">Para ser presentado ante:</label>
+      <div class="col-sm-9">
+        <input
+          style="text-transform: uppercase"
+          formControlName="aSerPresentadoAnte"
+          type="text"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="btn-group float-end mt-3" role="group">
+      <div class="d-flex justify-content-end mt-3">
+        <button mat-raised-button color="accent" [disabled]="!formValid">
+          <span>
+            <i class="bi bi-check2-circle"></i>
+          </span>
+          Enviar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

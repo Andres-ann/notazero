@@ -3,39 +3,44 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EditComponent } from './pages/edit/edit.component';
-import { CreateComponent } from './pages/create/create.component';
+import { EditSubjectComponent } from './pages/edit-subject/edit-subject.component';
+import { CreateSubjectComponent } from './pages/create-subject/create-subject.component';
 import { ShowComponent } from './pages/show/show.component';
-import { GenericFormComponent } from './components/generic-form/generic-form.component';
+import { SubjectFormComponent } from './components/subject-form/subject-form.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './components/angular-material/angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { TableComponent } from './components/table/table.component';
+import { TableComponent } from './components/subject-table/subject-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
-import { ConstanciasComponent } from './pages/constancias/constancias.component';
-import { CertificadosTableComponent } from './components/certificados-table/certificados-table.component';
+import { CertifiedComponent } from './pages/certified/certified.component';
+import { CertifiedTableComponent } from './components/certified-table/certified-table.component';
+import { CreateCertifiedComponent } from './pages/create-certified/create-certified.component';
+import { CertifiedFormComponent } from './components/certified-form/certified-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditComponent,
-    CreateComponent,
+    EditSubjectComponent,
+    CreateSubjectComponent,
     ShowComponent,
-    GenericFormComponent,
+    SubjectFormComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
     TableComponent,
     LoginComponent,
     SignupComponent,
-    ConstanciasComponent,
-    CertificadosTableComponent,
+    CertifiedComponent,
+    CertifiedFormComponent,
+    CertifiedTableComponent,
+    CreateCertifiedComponent,
+    CertifiedFormComponent,
   ],
   imports: [
     BrowserModule,

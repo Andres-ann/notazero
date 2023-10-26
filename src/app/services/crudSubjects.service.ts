@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
-import { Materias } from '../models/materias.model';
+import { Injectable } from '@angular/core';
+import { Subject } from '../models/subject.model';
 import { environment } from 'src/environments/environment';
 
 import {
@@ -13,9 +13,12 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class CrudService {
-  private userId: string = sessionStorage.getItem('userSub') || '';
-  private REST_API: string = `${environment.api.API_URL}/api/${this.userId}/subjects`;
+export class CrudSubjectsService {
+  private userId: string =
+    localStorage.getItem(
+      'CognitoIdentityServiceProvider.4d735puk5l41apnpl1951bdgit.LastAuthUser'
+    ) || '';
+  private API_SUBJECT_URL: string = `${environment.api.API_SUBJECT_URL}/api/${this.userId}/subjects`;
 
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -23,7 +26,7 @@ export class CrudService {
 
   getMaterias(): Observable<any[]> {
     return this.httpClient
-      .get<any[]>(this.REST_API, { headers: this.httpHeaders })
+      .get<any[]>(this.API_SUBJECT_URL, { headers: this.httpHeaders })
       .pipe(
         map((res: any) => {
           return res.subjects || [];
@@ -33,7 +36,7 @@ export class CrudService {
 
   getMateria(id: any): Observable<any> {
     return this.httpClient
-      .get(`${this.REST_API}/${id}`, {
+      .get(`${this.API_SUBJECT_URL}/${id}`, {
         headers: this.httpHeaders,
       })
       .pipe(
@@ -43,21 +46,21 @@ export class CrudService {
       );
   }
 
-  createMateria(data: Materias): Observable<any> {
+  createMateria(data: Subject): Observable<any> {
     return this.httpClient
-      .put(this.REST_API, data, { headers: this.httpHeaders })
+      .put(this.API_SUBJECT_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 
   updateMateria(id: any, data: any): Observable<any> {
     return this.httpClient
-      .put(`${this.REST_API}/${id}`, data, { headers: this.httpHeaders })
+      .put(`${this.API_SUBJECT_URL}/${id}`, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 
   deleteMateria(id: any): Observable<any> {
     return this.httpClient
-      .delete(`${this.REST_API}/${id}`, { headers: this.httpHeaders })
+      .delete(`${this.API_SUBJECT_URL}/${id}`, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 

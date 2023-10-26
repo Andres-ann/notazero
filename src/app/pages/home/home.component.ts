@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Materias } from 'src/app/models/materias.model';
+import { Subject } from 'src/app/models/subject.model';
 import { User } from 'src/app/models/user.model';
 import { CognitoService } from 'src/app/services/cognito.service';
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudSubjectsService } from 'src/app/services/crudSubjects.service';
 
 @Component({
   selector: 'app-home',
@@ -10,25 +10,24 @@ import { CrudService } from 'src/app/services/crud.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  materias: Materias[] = [];
+  materias: Subject[] = [];
   usuario: User[] = [];
   userName: string;
   isLoading: boolean = true;
 
   constructor(
-    private crudService: CrudService,
+    private CrudSubjectsService: CrudSubjectsService,
     private cognitoService: CognitoService
   ) {}
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.crudService.getMaterias().subscribe((materias: Materias[]) => {
-      this.materias = materias;
-      this.isLoading = false;
-    });
-
     this.cognitoService.getUser().then(() => {
       this.userName = sessionStorage.getItem('userName');
+    });
+    this.CrudSubjectsService.getMaterias().subscribe((materias: Subject[]) => {
+      this.materias = materias;
+      this.isLoading = false;
     });
   }
 }

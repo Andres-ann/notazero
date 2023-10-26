@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CertificadosTableComponent } from './certificados-table.component';
+import { CertifiedTableComponent } from './certified-table.component';
 
 describe('CertificadosTableComponent', () => {
-  let component: CertificadosTableComponent;
-  let fixture: ComponentFixture<CertificadosTableComponent>;
+  let component: CertifiedTableComponent;
+  let fixture: ComponentFixture<CertifiedTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CertificadosTableComponent ]
-    })
-    .compileComponents();
+      declarations: [CertifiedTableComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(CertificadosTableComponent);
+    fixture = TestBed.createComponent(CertifiedTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
