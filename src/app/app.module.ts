@@ -22,6 +22,9 @@ import { CertifiedComponent } from './pages/certified/certified.component';
 import { CertifiedTableComponent } from './components/certified-table/certified-table.component';
 import { CreateCertifiedComponent } from './pages/create-certified/create-certified.component';
 import { CertifiedFormComponent } from './components/certified-form/certified-form.component';
+import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified.component';
+import { AdminTableComponent } from './components/admin-table/admin-table.component';
+import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { CertifiedFormComponent } from './components/certified-form/certified-fo
     CertifiedTableComponent,
     CreateCertifiedComponent,
     CertifiedFormComponent,
+    AdminCertifiedComponent,
+    AdminTableComponent,
+    ShowCertifiedComponent,
   ],
   imports: [
     BrowserModule,

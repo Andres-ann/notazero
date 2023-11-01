@@ -37,9 +37,9 @@ export class CognitoService {
     const sub = userInfo.attributes.sub;
     const name = userInfo.attributes.name;
     const email = userInfo.attributes.email;
-    sessionStorage.setItem('userSub', sub); // Guardar el sub en sessionStorage
-    sessionStorage.setItem('userName', name); // Guardar el nombre en sessionStorage
-    sessionStorage.setItem('userEmail', email); // Guardar el correo electrónico en sessionStorage
+    sessionStorage.setItem('userSub', sub);
+    sessionStorage.setItem('userName', name);
+    sessionStorage.setItem('userEmail', email);
     return sub;
   }
 
@@ -48,10 +48,10 @@ export class CognitoService {
     return new Promise<boolean>((resolve, reject) => {
       Auth.currentAuthenticatedUser()
         .then(() => {
-          resolve(true); // Usuario autenticado
+          resolve(true);
         })
         .catch(() => {
-          resolve(false); // Usuario no autenticado
+          resolve(false);
         });
     });
   }

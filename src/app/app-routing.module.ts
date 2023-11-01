@@ -9,6 +9,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { SignupComponent } from './pages/signup/signup.component';
 import { CertifiedComponent } from './pages/certified/certified.component';
 import { CreateCertifiedComponent } from './pages/create-certified/create-certified.component';
+import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified.component';
+import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -33,6 +35,16 @@ const routes: Routes = [
   {
     path: 'create-certified',
     component: CreateCertifiedComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-certified',
+    component: AdminCertifiedComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'show-certified/:id',
+    component: ShowCertifiedComponent,
     canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: '', pathMatch: 'full' },

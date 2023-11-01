@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container h-100" *ngIf="certificado">
+  <div class="d-flex align-items-center mt-3 mt-sm-5 mb-sm-4">
+    <h1 class="fs-2">Autorizar: {{ certificado.tipoConstancia }}</h1>
+  </div>
+
+  <div class="card p-3 mb-5 shadow">
+    <div class="p-4">
+      <div>
+        <h2>Nombre y Apellido: {{ certificado.nombre }}</h2>
+      </div>
+      <div>
+        <h2>DNI: {{ certificado.dni }}</h2>
+      </div>
+      <div>
+        <h2>Fecha: {{ certificado.fecha | date : "dd/MM/YYYY" }}</h2>
+      </div>
+      <div>
+        <h2>A ser presentado ante: {{ certificado.aSerPresentadoAnte }}</h2>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-sm btn-outline-danger shadow-sm me-2">
+        <span>
+          <i class="bi bi-x-circle"></i>
+        </span>
+        Rechazar
+      </button>
+
+      <button class="btn btn-sm btn-outline-success shadow-sm me-2">
+        <span>
+          <i class="bi bi-check2-circle"></i>
+        </span>
+        Autorizar
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -24,18 +24,6 @@ export class crudCertifiedsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAllCertificados(): Observable<any[]> {
-    return this.httpClient
-      .get<any[]>(`${this.API_CERTIFIED_URL}`, {
-        headers: this.httpHeaders,
-      })
-      .pipe(
-        map((res: any) => {
-          return res.certificates || [];
-        })
-      );
-  }
-
   getCertificados(): Observable<any[]> {
     return this.httpClient
       .get<any[]>(`${this.API_CERTIFIED_URL}/certificates/${this.userId}`, {
