@@ -5,6 +5,7 @@
         <th class="col">Nombre</th>
         <th class="col">DNI</th>
         <th class="col">Tipo constancia</th>
+        <th class="col">Fecha</th>
         <th class="col">Estado</th>
         <th class="col"></th>
       </tr>
@@ -14,6 +15,7 @@
         <td>{{ certificado.nombre }}</td>
         <td>{{ certificado.dni }}</td>
         <td>{{ certificado.tipoConstancia }}</td>
+        <td>{{ certificado.fecha | date : "dd/MM/YYYY" }}</td>
         <td>
           <span
             class="badge rounded-pill"

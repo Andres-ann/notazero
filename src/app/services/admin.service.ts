@@ -29,4 +29,32 @@ export class AdminService {
       headers: this.httpHeaders,
     });
   }
+
+  updateCertificado(
+    userId: string,
+    certifiedId: string,
+    data: any
+  ): Observable<any> {
+    return this.httpClient
+      .put(
+        `${this.API_CERTIFIED_URL}/certificates/${userId}/${certifiedId}`,
+        data,
+        {
+          headers: this.httpHeaders,
+        }
+      )
+      .pipe(catchError(this.handleError));
+  }
+
+  handleError(error: HttpErrorResponse) {
+    let errorMsg: string = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMsg = error.error.message;
+    } else {
+      errorMsg = `Error code: ${error.status}. Message: ${error.message}`;
+    }
+    return throwError(() => {
+      errorMsg;
+    });
+  }
 }

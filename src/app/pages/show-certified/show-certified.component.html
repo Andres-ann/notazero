@@ -21,14 +21,20 @@
     </div>
 
     <div class="d-flex justify-content-end">
-      <button class="btn btn-sm btn-outline-danger shadow-sm me-2">
+      <button
+        class="btn btn-sm btn-outline-danger shadow-sm me-2"
+        (click)="changeState('rechazado')"
+      >
         <span>
           <i class="bi bi-x-circle"></i>
         </span>
         Rechazar
       </button>
 
-      <button class="btn btn-sm btn-outline-success shadow-sm me-2">
+      <button
+        class="btn btn-sm btn-outline-success shadow-sm me-2"
+        (click)="changeState('aprobado')"
+      >
         <span>
           <i class="bi bi-check2-circle"></i>
         </span>

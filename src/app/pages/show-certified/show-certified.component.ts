@@ -11,6 +11,8 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ShowCertifiedComponent implements OnInit {
   id!: string;
   certificado: Certified | undefined;
+  newEstado: string = '';
+  userId: string = '';
 
   constructor(
     private adminService: AdminService,
@@ -20,16 +22,39 @@ export class ShowCertifiedComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
 
     this.adminService.getAllCertificados().subscribe((data: any) => {
       if (data && data.users && data.users.length > 0) {
-        const certificados = data.users.map((user) => user.certifieds).flat();
-
-        this.certificado = certificados.find(
-          (certificado) => certificado.certifiedId === this.id
+        const user = data.users.find((user) =>
+          user.certifieds.some(
+            (certificado) => certificado.certifiedId === this.id
+          )
         );
+        if (user) {
+          this.userId = user.userId;
+          const certificados = user.certifieds;
+
+          this.certificado = certificados.find(
+            (certificado) => certificado.certifiedId === this.id
+          );
+        }
       }
     });
+  }
+
+  changeState(newState: string) {
+    if (this.certificado) {
+      this.certificado.estado = newState;
+      this.adminService
+        .updateCertificado(this.userId, this.id, this.certificado)
+        .subscribe({
+          next: () => {
+            this.router.navigate(['/admin-certified']);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
+    }
   }
 }

@@ -4,6 +4,22 @@
     <h1 class="fs-2">Autorizar constancias</h1>
   </div>
 
-  <app-admin-table [certificados]="certificados"></app-admin-table>
+  <div *ngIf="isLoading; else dataLoaded" class="text-center">
+    <div class="spinner-border text-secondary" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+  </div>
+
+  <ng-template #dataLoaded>
+    <ng-container *ngIf="certificados.length > 0; else noCertificadosMessage">
+      <app-admin-table [certificados]="certificados"></app-admin-table>
+    </ng-container>
+
+    <ng-template #noCertificadosMessage>
+      <div class="card shadow p-5 text-center text-success">
+        <h3>No hay constancias pendientes para autorizar 😊</h3>
+      </div>
+    </ng-template>
+  </ng-template>
 </div>
 <app-footer></app-footer>

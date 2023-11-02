@@ -11,7 +11,7 @@
     <tbody class="text-center">
       <tr *ngFor="let certificado of certificados">
         <td class="text-start">{{ certificado.tipoConstancia }}</td>
-        <td>{{ certificado.fecha }}</td>
+        <td>{{ certificado.fecha | date : "dd/MM/YYYY" }}</td>
         <td>
           <span
             class="badge rounded-pill"

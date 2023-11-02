@@ -9,13 +9,17 @@ import { crudCertifiedsService } from 'src/app/services/crudCertifieds.service';
 })
 export class CertifiedComponent implements OnInit {
   certificados: Certified[] = [];
+  isLoading: boolean = true;
+  noCertificadosMessage: boolean = true;
 
   constructor(private CrudCertifiedsService: crudCertifiedsService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.CrudCertifiedsService.getCertificados().subscribe(
       (certificados: Certified[]) => {
         this.certificados = certificados;
+        this.isLoading = false;
       }
     );
   }
