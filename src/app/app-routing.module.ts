@@ -11,6 +11,7 @@ import { CertifiedComponent } from './pages/certified/certified.component';
 import { CreateCertifiedComponent } from './pages/create-certified/create-certified.component';
 import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified.component';
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
+import { Error401Component } from './pages/error401/error401.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
@@ -47,6 +48,7 @@ const routes: Routes = [
     component: ShowCertifiedComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'error-401', component: Error401Component },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

@@ -37,9 +37,11 @@ export class CognitoService {
     const sub = userInfo.attributes.sub;
     const name = userInfo.attributes.name;
     const email = userInfo.attributes.email;
+    const rol = userInfo.attributes.profile;
     sessionStorage.setItem('userSub', sub);
     sessionStorage.setItem('userName', name);
     sessionStorage.setItem('userEmail', email);
+    sessionStorage.setItem('rol', rol);
     return sub;
   }
 

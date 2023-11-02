@@ -25,6 +25,7 @@ import { CertifiedFormComponent } from './components/certified-form/certified-fo
 import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified.component';
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
+import { Error401Component } from './pages/error401/error401.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ShowCertifiedComponent } from './pages/show-certified/show-certified.co
     AdminCertifiedComponent,
     AdminTableComponent,
     ShowCertifiedComponent,
+    Error401Component,
   ],
   imports: [
     BrowserModule,
