@@ -29,8 +29,8 @@ export class ShowComponent implements OnInit {
     if (confirm('¿Estás seguro de que queres eliminar esta materia?')) {
       this.CrudSubjectsService.deleteMateria(this.id).subscribe(
         (res: any) => {
-          // Redirigir al usuario a la página de inicio
-          this.router.navigate(['/home']);
+          // Redirigir al usuario a la página de materias
+          this.router.navigate(['/subjects']);
         },
         (error: any) => {
           console.error(error);

@@ -26,6 +26,7 @@ import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified
 import { AdminTableComponent } from './components/admin-table/admin-table.component';
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 import { Error401Component } from './pages/error401/error401.component';
+import { SubjectsComponent } from './pages/subjects/subjects.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { Error401Component } from './pages/error401/error401.component';
     AdminTableComponent,
     ShowCertifiedComponent,
     Error401Component,
+    SubjectsComponent,
   ],
   imports: [
     BrowserModule,

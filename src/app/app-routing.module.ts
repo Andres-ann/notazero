@@ -12,11 +12,13 @@ import { CreateCertifiedComponent } from './pages/create-certified/create-certif
 import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified.component';
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 import { Error401Component } from './pages/error401/error401.component';
+import { SubjectsComponent } from './pages/subjects/subjects.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'subjects', component: SubjectsComponent, canActivate: [AuthGuard] },
   { path: 'show/:id', component: ShowComponent, canActivate: [AuthGuard] },
   {
     path: 'create',
