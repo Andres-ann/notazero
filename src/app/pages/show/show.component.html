@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container" *ngIf="materia">
+<div class="container h-100" *ngIf="materia">
   <div class="d-flex align-items-center mt-3 mt-sm-5 mb-sm-4">
     <h1 class="fs-2">{{ materia.materia }}</h1>
     <a
@@ -29,21 +29,26 @@
       </div>
 
       <div class="col-3 mb-2">
-        Fecha primer parcial: {{ materia.fechaPrimerParcial }}
+        Fecha primer parcial:
+        {{ materia.fechaPrimerParcial | date : "dd/MM/YYYY" }}
       </div>
       <div class="col-9 mb-2">Nota: {{ materia.notaPrimerParcial }}</div>
 
       <div class="col-3 mb-2">
-        Fecha segundo parcial: {{ materia.fechaSegundoParcial }}
+        Fecha segundo parcial:
+        {{ materia.fechaSegundoParcial | date : "dd/MM/YYYY" }}
       </div>
       <div class="col-9 mb-2">Nota: {{ materia.notaSegundoParcial }}</div>
 
       <div class="col-3 mb-2">
-        Fecha recuperatorio: {{ materia.fechaRecuperatorio }}
+        Fecha recuperatorio:
+        {{ materia.fechaRecuperatorio | date : "dd/MM/YYYY" }}
       </div>
       <div class="col-9 mb-2">Nota: {{ materia.notaRecuperatorio }}</div>
 
-      <div class="col-3 mb-2">Fecha examen final: {{ materia.fechaFinal }}</div>
+      <div class="col-3 mb-2">
+        Fecha examen final: {{ materia.fechaFinal | date : "dd/MM/YYYY" }}
+      </div>
       <div class="col-9 mb-2">Nota: {{ materia.notaFinal }}</div>
 
       <hr />

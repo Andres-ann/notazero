@@ -28,12 +28,31 @@
         <li>
           <a
             class="dropdown-item"
+            routerLink="/subjects"
+            style="cursor: pointer"
+          >
+            <li><i class="bi bi-bookmark-star"></i> Mis materias</li></a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
             routerLink="/certifieds"
             style="cursor: pointer"
           >
             <li><i class="bi bi-file-text"></i> Constancias</li></a
           >
         </li>
+        <li>
+          <a
+            class="dropdown-item"
+            (click)="redirectToAuthorizations()"
+            style="cursor: pointer"
+          >
+            <li><i class="bi bi-clipboard2-check"></i> Autorizaciones</li>
+          </a>
+        </li>
+
         <li><hr class="dropdown-divider" /></li>
         <li>
           <a class="dropdown-item" (click)="signOut()" style="cursor: pointer">

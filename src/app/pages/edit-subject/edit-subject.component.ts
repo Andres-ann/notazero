@@ -46,7 +46,7 @@ export class EditSubjectComponent implements OnInit {
   onSubmit(materia: Subject) {
     this.CrudSubjectsService.updateMateria(this.id, materia).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/subjects']);
       },
       error: (error) => {
         console.log(error);

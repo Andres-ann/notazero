@@ -1,16 +1,20 @@
 <div class="card p-3 mb-5 shadow">
   <table class="table table-hover">
-    <thead class="text-center">
+    <thead>
       <tr>
-        <th class="col-6 text-start">Constancia</th>
+        <th class="col">Nombre</th>
+        <th class="col">DNI</th>
+        <th class="col">Tipo constancia</th>
         <th class="col">Fecha</th>
         <th class="col">Estado</th>
-        <th class="col">Acciones</th>
+        <th class="col"></th>
       </tr>
     </thead>
-    <tbody class="text-center">
+    <tbody>
       <tr *ngFor="let certificado of certificados">
-        <td class="text-start">{{ certificado.tipoConstancia }}</td>
+        <td>{{ certificado.nombre }}</td>
+        <td>{{ certificado.dni }}</td>
+        <td>{{ certificado.tipoConstancia }}</td>
         <td>{{ certificado.fecha | date : "dd/MM/YYYY" }}</td>
         <td>
           <span
@@ -24,9 +28,13 @@
             {{ certificado.estado }}
           </span>
         </td>
+
         <td>
-          <a class="btn btn-sm">
-            <i class="bi bi-printer text-muted"></i>
+          <a
+            routerLink="/show-certified/{{ certificado.certifiedId }}"
+            class="btn btn-sm"
+          >
+            <i class="bi bi-box-arrow-up-right text-muted"></i>
           </a>
         </td>
       </tr>

@@ -14,7 +14,26 @@
     </a>
   </div>
 
-  <app-certified-table [certificados]="certificados"></app-certified-table>
+  <ng-container *ngIf="isLoading; else dataLoaded">
+    <!-- Mostrar el spinner de carga -->
+    <div class="text-center">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #dataLoaded>
+    <ng-container *ngIf="certificados.length > 0; else noCertificadosMessage">
+      <app-certified-table [certificados]="certificados"></app-certified-table>
+    </ng-container>
+
+    <ng-template #noCertificadosMessage>
+      <div class="card shadow p-5 text-center text-success">
+        <h3>No tenés ninguna constancia solicitada al momento 😊</h3>
+      </div>
+    </ng-template>
+  </ng-template>
 </div>
 
 <app-footer></app-footer>
