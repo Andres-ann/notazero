@@ -11,12 +11,9 @@ import { CognitoService } from 'src/app/services/cognito.service';
 export class HeaderComponent implements OnInit {
   userName: string;
 
-  isAdmin: string;
-
   constructor(private router: Router, private cognitoService: CognitoService) {}
 
   ngOnInit(): void {
-    this.isAdmin = sessionStorage.getItem('rol');
     this.cognitoService.getUser().then(() => {
       this.userName = sessionStorage.getItem('userName');
     });
@@ -28,16 +25,5 @@ export class HeaderComponent implements OnInit {
       sessionStorage.clear();
       this.router.navigate(['/']);
     });
-  }
-
-  // Método para manejar la redirección a /error-401 si no es administrador
-  redirectToAuthorizations() {
-    if (this.isAdmin !== 'admin' && this.isAdmin !== undefined) {
-      // No es administrador, redirigir a /error-401
-      this.router.navigate(['/error-401']);
-    } else {
-      // Es administrador, redirigir a la página de autorizaciones
-      this.router.navigate(['/admin-certified']);
-    }
   }
 }

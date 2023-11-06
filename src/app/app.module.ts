@@ -27,6 +27,8 @@ import { AdminTableComponent } from './components/admin-table/admin-table.compon
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 import { Error401Component } from './pages/error401/error401.component';
 import { SubjectsComponent } from './pages/subjects/subjects.component';
+import { AdminGuard } from './guards/admin.guard';
+import { UserGuard } from './guards/user.guard';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,7 @@ import { SubjectsComponent } from './pages/subjects/subjects.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AdminGuard, UserGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -13,42 +13,56 @@ import { AdminCertifiedComponent } from './pages/admin-certified/admin-certified
 import { ShowCertifiedComponent } from './pages/show-certified/show-certified.component';
 import { Error401Component } from './pages/error401/error401.component';
 import { SubjectsComponent } from './pages/subjects/subjects.component';
+import { AdminGuard } from './guards/admin.guard';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'subjects', component: SubjectsComponent, canActivate: [AuthGuard] },
-  { path: 'show/:id', component: ShowComponent, canActivate: [AuthGuard] },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'subjects',
+    component: SubjectsComponent,
+    canActivate: [AuthGuard, UserGuard],
+  },
+  {
+    path: 'show/:id',
+    component: ShowComponent,
+    canActivate: [AuthGuard, UserGuard],
+  },
   {
     path: 'create',
     component: CreateSubjectComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
   },
   {
     path: 'update/:id',
     component: EditSubjectComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
   },
   {
     path: 'certifieds',
     component: CertifiedComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
   },
   {
     path: 'create-certified',
     component: CreateCertifiedComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, UserGuard],
   },
   {
     path: 'admin-certified',
     component: AdminCertifiedComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   {
     path: 'show-certified/:id',
     component: ShowCertifiedComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminGuard],
   },
   { path: 'error-401', component: Error401Component },
   { path: '**', redirectTo: '', pathMatch: 'full' },
