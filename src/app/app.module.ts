@@ -29,6 +29,7 @@ import { Error401Component } from './pages/error401/error401.component';
 import { SubjectsComponent } from './pages/subjects/subjects.component';
 import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { UserGuard } from './guards/user.guard';
     ShowCertifiedComponent,
     Error401Component,
     SubjectsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
