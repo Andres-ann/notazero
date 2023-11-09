@@ -17,7 +17,7 @@ export class CreateSubjectComponent {
   onSubmit(materias: Subject) {
     this.CrudSubjectsService.createMateria(materias).subscribe({
       next: () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/subjects']);
       },
       error: (error) => {
         console.log(error);
