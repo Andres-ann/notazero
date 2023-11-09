@@ -1,39 +1,41 @@
 <app-header></app-header>
-
-<div class="container h-100">
-  <div class="mt-3 mt-sm-5 mb-sm-4">
-    <h1 class="fs-2">Constancias</h1>
-  </div>
-
-  <div class="d-flex justify-content-end mt-3 mb-3">
-    <a routerLink="/create-certified" mat-raised-button>
-      <span>
-        <i class="bi bi-plus-circle"></i>
-      </span>
-      Solicitar constancia
-    </a>
-  </div>
-
-  <ng-container *ngIf="isLoading; else dataLoaded">
-    <!-- Mostrar el spinner de carga -->
-    <div class="text-center">
-      <div class="spinner-border text-secondary" role="status">
-        <span class="visually-hidden">Cargando...</span>
-      </div>
+<div class="content-container">
+  <div class="container h-100">
+    <div class="mt-3 mt-sm-5 mb-sm-4">
+      <h1 class="fs-2">Constancias</h1>
     </div>
-  </ng-container>
 
-  <ng-template #dataLoaded>
-    <ng-container *ngIf="certificados.length > 0; else noCertificadosMessage">
-      <app-certified-table [certificados]="certificados"></app-certified-table>
+    <div class="d-flex justify-content-end mt-3 mb-3">
+      <a routerLink="/create-certified" mat-raised-button>
+        <span>
+          <i class="bi bi-plus-circle"></i>
+        </span>
+        Solicitar constancia
+      </a>
+    </div>
+
+    <ng-container *ngIf="isLoading; else dataLoaded">
+      <!-- Mostrar el spinner de carga -->
+      <div class="text-center">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+      </div>
     </ng-container>
 
-    <ng-template #noCertificadosMessage>
-      <div class="card shadow p-5 text-center text-success">
-        <h3>No tenés ninguna constancia solicitada al momento 😊</h3>
-      </div>
-    </ng-template>
-  </ng-template>
-</div>
+    <ng-template #dataLoaded>
+      <ng-container *ngIf="certificados.length > 0; else noCertificadosMessage">
+        <app-certified-table
+          [certificados]="certificados"
+        ></app-certified-table>
+      </ng-container>
 
+      <ng-template #noCertificadosMessage>
+        <div class="card shadow p-5 text-center text-success">
+          <h3>No tenés ninguna constancia solicitada al momento 😊</h3>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
 <app-footer></app-footer>
