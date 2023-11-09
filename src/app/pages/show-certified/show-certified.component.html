@@ -8,16 +8,24 @@
     <div class="card p-3 mb-5 shadow">
       <div class="p-4">
         <div>
+          <h2>Fecha: {{ certificado.fecha | date : "dd/MM/YYYY" }}</h2>
+        </div>
+        <div>
           <h2>Nombre y Apellido: {{ certificado.nombre }}</h2>
         </div>
         <div>
           <h2>DNI: {{ certificado.dni }}</h2>
         </div>
         <div>
-          <h2>Fecha: {{ certificado.fecha | date : "dd/MM/YYYY" }}</h2>
+          <h2>A ser presentado ante: {{ certificado.aSerPresentadoAnte }}</h2>
         </div>
         <div>
-          <h2>A ser presentado ante: {{ certificado.aSerPresentadoAnte }}</h2>
+          <h2>Asignatura (si correesponde): {{ certificado.asignatura }}</h2>
+        </div>
+        <div>
+          <h2>
+            Tipo de examen (si correesponde): {{ certificado.tipoExamen }}
+          </h2>
         </div>
       </div>
 
