@@ -23,7 +23,7 @@
     <div
       class="row mb-3"
       *ngIf="
-        certificadosForm.get('tipoConstancia').value === 'Constancia de examen'
+        certificadosForm.get('tipoConstancia').value === 'CONSTANCIA DE EXAMEN'
       "
     >
       <label class="col col-form-label">Asignatura:</label>
@@ -43,9 +43,10 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="tipoExamen"
             id="inlineRadio1"
             value="parcial"
+            formControlName="tipoExamen"
             required
           />
         </div>
@@ -54,9 +55,10 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="tipoExamen"
             id="inlineRadio2"
             value="final"
+            formControlName="tipoExamen"
             required
           />
         </div>
