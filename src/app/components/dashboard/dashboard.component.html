@@ -1,23 +1,23 @@
 <div class="row mt-5">
   <!-- Materias en curso -->
-  <div class="col-sm-4 mb-3 mb-sm-0" *ngIf="isAdmin === 'undefined'">
+  <div class="col-sm-4 mb-3 mb-sm-0" *ngIf="isAdmin !== 'admin'">
     <a class="link-underline link-underline-opacity-0" routerLink="/subjects">
       <div class="card bg-primary text-light">
         <div class="card-body">
-          <h2 class="card-title">Materias en curso</h2>
-          <p class="fs-1 card-text text-end m-3">0</p>
+          <h2 class="card-title">Mis materias</h2>
+          <p class="fs-1 card-text text-end m-3">{{ materias.length }}</p>
         </div>
       </div>
     </a>
   </div>
 
   <!-- Constancias pendientes -->
-  <div class="col-sm-4 mb-3 mb-sm-0" *ngIf="isAdmin === 'undefined'">
+  <div class="col-sm-4 mb-3 mb-sm-0" *ngIf="isAdmin !== 'admin'">
     <a class="link-underline link-underline-opacity-0" routerLink="/certifieds">
       <div class="card bg-success text-light">
         <div class="card-body">
           <h2 class="card-title">Constancias pendientes</h2>
-          <p class="fs-1 card-text text-end m-3">0</p>
+          <p class="fs-1 card-text text-end m-3">{{ constancias.length }}</p>
         </div>
       </div>
     </a>
@@ -32,7 +32,7 @@
       <div class="card bg-danger text-light">
         <div class="card-body">
           <h2 class="card-title">Autorizaciones pendientes</h2>
-          <p class="fs-1 card-text text-end m-3">0</p>
+          <p class="fs-1 card-text text-end m-3">{{ autorizaciones.length }}</p>
         </div>
       </div>
     </a>
