@@ -10,6 +10,7 @@ import { CognitoService } from 'src/app/services/cognito.service';
 })
 export class HeaderComponent implements OnInit {
   userName: string;
+
   constructor(private router: Router, private cognitoService: CognitoService) {}
 
   ngOnInit(): void {
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   signOut() {
     this.cognitoService.signOut().then(() => {
+      localStorage.clear();
       sessionStorage.clear();
       this.router.navigate(['/']);
     });

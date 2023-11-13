@@ -1,0 +1,43 @@
+<div class="card p-3 mb-5 shadow">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="col">Nombre</th>
+        <th class="col">DNI</th>
+        <th class="col">Tipo constancia</th>
+        <th class="col">Fecha</th>
+        <th class="col">Estado</th>
+        <th class="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let certificado of certificados">
+        <td>{{ certificado.nombre }}</td>
+        <td>{{ certificado.dni }}</td>
+        <td>{{ certificado.tipoConstancia }}</td>
+        <td>{{ certificado.fecha | date : "dd/MM/YYYY" }}</td>
+        <td>
+          <span
+            class="badge rounded-pill"
+            [ngClass]="{
+              'bg-danger text-white': certificado.estado === 'rechazado',
+              'bg-secondary text-white': certificado.estado === 'pendiente',
+              'bg-success text-white': certificado.estado === 'aprobado'
+            }"
+          >
+            {{ certificado.estado }}
+          </span>
+        </td>
+
+        <td>
+          <a
+            routerLink="/show-certified/{{ certificado.certifiedId }}"
+            class="btn btn-sm"
+          >
+            <i class="bi bi-box-arrow-up-right text-muted"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
